@@ -5,12 +5,12 @@ class DB {
     read() {
         return fs.readFile('./db.json', 'utf8');
     }
-    getNotes() {
-        return this.read()
-            .then(notes => {
-                return [].concat(JSON.parse(notes));
-            });
-    }
+    // getNotes() {
+    //     return this.read()
+    //         .then(notes => {
+    //             return [].concat(JSON.parse(notes));
+    //         });
+    // }
 
     write(title, text, id) {
         return fs.writeFile('./db.json', JSON.stringify({ title: title, text: text, id: uniqid() }));
