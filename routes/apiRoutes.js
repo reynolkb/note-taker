@@ -1,18 +1,16 @@
+const { addNotes } = require('../db/middleware');
 const db = require('../db/middleware');
 const router = require('express').Router();
 
 router.get('/notes', (req, res) => {
-    db.read()
-        .then(data => {
-            return res.json(data);
-        });
+    var data = db.getNotes();
+    res.json(data);
 });
 
 router.post('/notes', (req, res) => {
-    db.write()
-        .then(data => {
-            return res.json(data);
-        });
+    console.log(req.body);
+    db.addNotes(req.body);
+    res.end();
 });
 
 module.exports = router;

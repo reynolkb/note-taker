@@ -1,26 +1,22 @@
 const fs = require('fs');
 const uniqid = require('uniqid');
+let data = require('./db.json');
 
 class DB {
-    read() {
-        return fs.readFile('./db.json', 'utf8');
-    }
-    getNotes() {
-        return this.read()
-            .then(notes => {
-                return [].concat(JSON.parse(notes));
-            });
+    constructor(data) {
+        this.data = data;
     }
 
-    write(title, text, id) {
-        return fs.writeFile('./db.json', JSON.stringify({ title: title, text: text, id: uniqid() }));
+    getNotes() {
+        return this.data;
     }
-    addNotes() {
-        return this.write()
-            .then(note => {
-                return [].concat(JSON.parse(note));
-            });
+
+    addNotes(note) {
+        var updatedNote = { title: note.title, text: note.text, id: uniqid() };
+        this.data.push(updatedNote);
+
+        fs.writeFileSync('./db.json', JSON.stringify(data));
     }
 }
 
-module.exports = new DB();
+module.exports = new DB(data);
