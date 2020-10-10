@@ -1,4 +1,3 @@
-const { addNotes } = require('../db/middleware');
 const db = require('../db/middleware');
 const router = require('express').Router();
 
@@ -8,8 +7,12 @@ router.get('/notes', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-    console.log(req.body);
     db.addNotes(req.body);
+    res.end();
+});
+
+router.delete('/notes/:id', (req, res) => {
+    db.deleteNotes(req.params.id);
     res.end();
 });
 

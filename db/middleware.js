@@ -17,6 +17,20 @@ class DB {
 
         fs.writeFileSync('./db.json', JSON.stringify(data));
     }
+
+    deleteNotes(id) {
+        var allNotes = this.getNotes();
+        console.log(allNotes);
+
+        var filteredNotes = allNotes.filter(note => {
+            return note.id !== id;
+        });
+
+        console.log(filteredNotes);
+        this.data = filteredNotes;
+
+        fs.writeFileSync('./db.json', JSON.stringify(data));
+    }
 }
 
 module.exports = new DB(data);
