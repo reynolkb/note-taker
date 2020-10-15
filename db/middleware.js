@@ -18,7 +18,7 @@ class DB {
         this.data.push(updatedNote);
 
         // creates a file with the data
-        fs.writeFileSync('../db/db.json', JSON.stringify(data));
+        fs.writeFileSync('./db/db.json', JSON.stringify(data));
     }
 
     // deletes a note
@@ -33,7 +33,7 @@ class DB {
         this.data = filteredNotes;
 
         // rewrites the file back with the updated notes
-        fs.writeFileSync('../db/db.json', JSON.stringify(data));
+        fs.writeFileSync('./db/db.json', JSON.stringify(data));
     }
 }
 
