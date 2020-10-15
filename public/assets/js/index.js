@@ -19,7 +19,7 @@ var getNotes = function () {
 var saveNote = function (note) {
   return $.ajax({
     url: "/api/notes",
-    data: note,
+    data: note, // whatever is put in the data is the body
     method: "POST"
   });
 };

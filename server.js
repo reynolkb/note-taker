@@ -1,6 +1,5 @@
 const { urlencoded } = require('express');
 const express = require('express');
-// const PORT = process.env.port || 3001;
 const apiRoutes = require('./routes/apiRoutes');
 const htmlRoutes = require('./routes/htmlRoutes');
 const app = express();
