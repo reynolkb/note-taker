@@ -6,6 +6,9 @@
         
 This is a note taker application that allows the user to write and save off notes to be referenced later.
 
+Deployed Application
+https://note-taker-kyle.herokuapp.com/
+
 ## Table of Contents
 
 * [Installation](#installation)
